@@ -1,0 +1,69 @@
+cat << 'EOF' > .gitignore
+### Angular ###
+## Build output
+/dist/
+/tmp/
+/out-tsc/
+
+## Dependencies
+/node_modules/
+/.angular/cache
+
+## IDE
+/.vscode/
+/.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+### .NET Core ###
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+
+## Build logs
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## NuGet
+.nuget/
+*.nupkg
+nuget.exe
+
+## VS Code
+.vs/
+.history/
+
+## User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+## Environment files
+.env
+*.env*
+appsettings.*.json
+
+### Docker ###
+.devcontainer/
+Dockerfile*
+docker-compose*
+.dockerignore
+
+### OS ###
+.DS_Store
+Thumbs.db
+EOF

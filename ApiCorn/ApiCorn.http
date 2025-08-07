@@ -1,0 +1,6 @@
+@ApiCorn_HostAddress = http://localhost:5120
+
+GET {{ApiCorn_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
