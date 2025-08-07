@@ -44,7 +44,6 @@ public class Throttle : Attribute, IAsyncActionFilter
         }
         finally
         {
-            // Schedule release after the time window
             _ = ReleaseAfterDelay(semaphore, TimeSpan.FromSeconds(_perSeconds));
         }
     }
@@ -54,7 +53,6 @@ public class Throttle : Attribute, IAsyncActionFilter
         if (!string.IsNullOrEmpty(_throttleGroup))
             return _throttleGroup;
 
-        // Include controller and action name for more precise throttling
         return $"{context.HttpContext.Request.Path}:{context.ActionDescriptor.DisplayName}";
     }
 
@@ -67,13 +65,11 @@ public class Throttle : Attribute, IAsyncActionFilter
         }
         catch
         {
-            // Ensure semaphore doesn't remain locked if errors occur
             if (semaphore.CurrentCount < _maxRequests)
                 semaphore.Release();
         }
     }
 
-    // For debugging/monitoring
     public static IReadOnlyDictionary<string, int> GetThrottleStates()
     {
         return _semaphores.ToDictionary(
