@@ -19,7 +19,7 @@ public partial class Context : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<Sell> Sells { get; set; }
+    public virtual DbSet<Sale> Sales { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -50,14 +50,14 @@ public partial class Context : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Sell>(entity =>
+        modelBuilder.Entity<Sale>(entity =>
         {
             entity
                 .HasNoKey()
-                .ToTable("Sell");
+                .ToTable("Sale");
 
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.SellId).ValueGeneratedOnAdd();
+            entity.Property(e => e.SaleId).ValueGeneratedOnAdd();
         });
 
         OnModelCreatingPartial(modelBuilder);

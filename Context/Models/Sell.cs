@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Context.Models;
 
-public partial class Sell
+public partial class Sale
 {
-    public int SellId { get; set; }
+    public int SaleId { get; set; }
 
     public int? ClientId { get; set; }
 

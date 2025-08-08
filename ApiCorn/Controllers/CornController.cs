@@ -8,7 +8,7 @@ namespace ApiCorn.Controllers
     public class CornController : ControllerBase
     {
         [HttpPost]
-        [Throttle(5, 10)] 
+        [Throttle(1, 60)] 
         public async Task<IActionResult> DummyFunction([FromBody] string dummyInput)
         {     
             await Task.Delay(100); 
