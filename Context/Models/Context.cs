@@ -52,12 +52,11 @@ public partial class Context : DbContext
 
         modelBuilder.Entity<Sale>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Sale");
+            entity.HasKey(e => e.SaleId).HasName("pk_sale");
+
+            entity.ToTable("Sale");
 
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.SaleId).ValueGeneratedOnAdd();
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,0 +1,17 @@
+<h1>🌽 Buy Corn</h1>
+
+<form (ngSubmit)="buyCorn()">
+  <label>
+    Client ID:
+    <input type="number" [(ngModel)]="clientId" name="clientId" required />
+  </label>
+  <br />
+  <label>
+    Product ID:
+    <input type="number" [(ngModel)]="productId" name="productId" required />
+  </label>
+  <br /><br />
+  <button type="submit">Buy</button>
+</form>
+
+<p>{{ responseMessage }}</p>
